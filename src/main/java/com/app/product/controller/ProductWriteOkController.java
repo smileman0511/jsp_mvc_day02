@@ -17,21 +17,21 @@ public class ProductWriteOkController implements Action {
 	public Result excute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		Result result = new Result();
 		ProductDAO productDAO = new ProductDAO();
-		ProductVO productVO = new ProductVO();
+		ProductVO productVO = new ProductVO();		
 		
-//		서비스 기능
+//		서비스 기능 
 		productVO.setProductName(req.getParameter("productName"));
 		productVO.setProductPrice(Integer.parseInt(req.getParameter("productPrice")));
 		productVO.setProductStock(Integer.parseInt(req.getParameter("productStock")));
-		
+
 		productDAO.insert(productVO);
 		
-//		어디로 
+//		어디로
 		result.setPath("list.product");
 //		어떻게
 		result.setRedirect(true);
-		
 		return result;
+	
 	}
 
 }

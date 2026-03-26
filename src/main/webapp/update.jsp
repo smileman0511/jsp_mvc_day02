@@ -5,14 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 수정</title>
+<title>상품 등록 페이지</title>
 </head>
 <body>
+
 	<%
 		ProductVO product = (ProductVO)request.getAttribute("product");
 	%>
 	<form action="/mvc/update-ok.product" method="post">
-		<input name="id" type="hidden" value="<%=product.getId() %>" />
+		<input name="id" type="hidden" value="<%=product.getId() %>">
 		<div>
 			<span>상품명</span>
 			<input name="productName" value="<%=product.getProductName() %>" />
@@ -23,9 +24,12 @@
 		</div>
 		<div>
 			<span>상품 재고</span>
-			<input name="productStock" value="<%=product.getProductStock() %>" />
+			<input name="productStock" value="<%=product.getProductStock() %>"/>
 		</div>
 		<button>상품 수정</button>
 	</form>
 </body>
+
+
+
 </html>

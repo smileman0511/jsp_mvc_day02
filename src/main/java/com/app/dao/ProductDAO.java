@@ -10,22 +10,34 @@ import com.app.vo.ProductVO;
 
 public class ProductDAO {
 	public SqlSession sqlSession;
-
+	
 	public ProductDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
-
+	
 	public void insert(ProductVO productVO) {
 		sqlSession.insert("product.insert", productVO);
 	};
-
+	
 	public List<ProductVO> selectAll() {
-		List<ProductVO> products = sqlSession.selectList("product.selectAll");
-		return products;
+		 List<ProductVO> products = sqlSession.selectList("product.selectAll");
+		 return products;
 	}
-
+	
 	public Optional<ProductVO> select(Long id) {
-		ProductVO product = sqlSession.selectOne("product.select", id);
-		return Optional.ofNullable(product);
+		return Optional.ofNullable(sqlSession.selectOne("product.select", id));
 	}
+	
+	public void update(ProductVO productVO) {
+		sqlSession.update("product.update", productVO);
+	}
+	
+	public void delete(Long id) {
+		sqlSession.delete("product.delete", id);
+	}
+	
 }
+
+
+
+

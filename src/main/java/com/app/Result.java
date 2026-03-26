@@ -1,9 +1,9 @@
 package com.app;
 
 public class Result {
-	
+//	어떻게
 	private boolean isRedirect;
-	
+//	어디로
 	private String path;
 	
 	public Result() {;}
@@ -30,3 +30,4 @@ public class Result {
 	}
 	
 }
+	

@@ -10,17 +10,20 @@
 	<form action="/mvc/write-ok.product" method="post">
 		<div>
 			<span>상품명</span>
-			<input name="productName"/>
+			<input name="productName" />
 		</div>
 		<div>
 			<span>상품 가격</span>
-			<input name="productPrice"/>
+			<input name="productPrice" />
 		</div>
 		<div>
 			<span>상품 재고</span>
-			<input name="productStock"/>
+			<input name="productStock" />
 		</div>
 		<button>상품 등록</button>
 	</form>
 </body>
+
+
+
 </html>

@@ -1,5 +1,5 @@
-<%@page import="com.app.vo.ProductVO"%>
 <%@page import="java.util.List"%>
+<%@page import="com.app.vo.ProductVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,34 +10,39 @@
 </head>
 <body>
 
-	<%
-		List<ProductVO> products = (List<ProductVO>)request.getAttribute("products");
-		System.out.println(products);
-	%>
-	<!--  
-		테이블 화면 출력
-	-->
+<%
+	List<ProductVO> products = (List<ProductVO>)request.getAttribute("products");
+	System.out.println(products);
+%>
+
+<!-- 
+	테이블 화면 출력
+-->
+
 	<table border="1">
-        <tr>
-            <th>상품번호</th>
-            <th>상품명</th>
-            <th>상품가격</th>
-            <th>상품재고</th>
-        </tr>
-        <%
-            for(ProductVO product : products) {
-        %>
-        <tr>
-            <td><%=product.getId()%></td>
-            <td><%=product.getProductName()%></td>
-            <td><%=product.getProductPrice()%></td>
-            <td><%=product.getProductStock()%></td>
-        </tr>
-        <%
-            }
-        %>
-    </table>
-	
-	
+	<tr>
+		<th>상품번호</th>
+		<th>상품명</th>
+		<th>상품가격</th>
+		<th>상품재고</th>
+	</tr>
+	<%
+		for(ProductVO product : products) {
+	%>
+		<tr>
+			<td><%=product.getId() %></td>
+			<td>
+				<a href="/mvc/read.product?id=<%=product.getId() %>">
+					<%=product.getProductName() %>
+				</a>
+			</td>
+			<td><%=product.getProductPrice() %></td>
+			<td><%=product.getProductStock() %></td>
+		</tr>
+	<% 
+		}
+	%>
+	</table>
+
 </body>
 </html>
